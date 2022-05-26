@@ -1,0 +1,10 @@
+<scenario>
+    <provider>virtualbox</provider>
+
+    <system>
+        <name>test</name>
+        <base>ubuntu/xenial64</base>
+
+    </system>
+
+</scenario>

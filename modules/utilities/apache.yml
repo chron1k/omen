@@ -1,0 +1,9 @@
+---
+- hosts: default
+  become: true
+
+- tasks:
+    - name: Install latest version of Apache
+      ansible.builtin.package:
+        name: "{{ package_name }}"
+        state: latest

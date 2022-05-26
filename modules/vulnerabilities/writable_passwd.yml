@@ -1,0 +1,20 @@
+---
+- hosts: default
+  become: true
+
+- tasks:
+  - name: Check that /etc/passwd exists
+    stat:
+      path: /etc/passwd
+    register: stat_result
+
+  - name: Create /etc/passwd if it doesn't exist
+    file:
+      path: /etc/passwd
+      state: touch
+    when: not stat_result.stat.exists
+
+  - name: Change mode of /etc/passwd to 0777
+    file:
+      path: /etc/passwd
+      mode: 0777
